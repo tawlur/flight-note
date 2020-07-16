@@ -5,8 +5,15 @@ const favicon = require('serve-favicon');
 const fetch = require('node-fetch')
 const app = express();
 
+
 require('dotenv').config();
 require('./config/database');
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 const usersRoutes = require('./routes/users');
 
@@ -14,21 +21,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
+const token = process.env.TOKEN
 
 // API routes
 
 app.use('/api/users', usersRoutes);
 
-// const params = {
-//   access_key: '89fa0e334c3b82558f0734c319d171d5' 
-// } 
+
 
 app.get('/allFlights', async(req, res) => {
-    const apiUrl = `https://tawlur:tylertyler@opensky-network.org/api/flights/all?begin=1517227200&end=1517230800` 
+    const apiUrl = `https://${token}@opensky-network.org/api/flights/all?begin=1517227200&end=1517230800&icao24=A647D7` 
     const response = await fetch(apiUrl)
     const json = await response.json();
     res.send(json)
 })
+
+// 172   &icao24=A647D7
 
 app.use(require('./config/auth'))
 
