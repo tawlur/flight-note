@@ -8,23 +8,24 @@ class MapPage extends Component {
 constructor() {
     super() 
     this.state={    
-        feed: []
+        feed: [],
+        messages: []
     }
 }
 
 //response.response.feedMessageResponse.messages.messages
 
 componentDidMount() {
-    this.getAllFlights()
+    this.getAllMessages()
 }
 
-getAllFlights = async () => {
+getAllMessages = async () => {
     try{
-        const allFlights = await fetch(process.env.REACT_APP_BACKEND_URL+"/allFlights")
-        const parsedAllFlights = await allFlights.json()
-        console.log(parsedAllFlights)
+        const allMessages = await fetch(process.env.REACT_APP_BACKEND_URL+"/allFlights")
+        const parsedAllMessages = await allMessages.json()
+        // console.log(parsedAllFlights)
         this.setState({
-            flights: parsedAllFlights.response
+            messages: parsedAllMessages.response.feedMessageResponse.messages.message
         })
     } catch(error) {
         console.log(error)
@@ -32,14 +33,23 @@ getAllFlights = async () => {
 }
 
   render() {
-      const flight = this.state.flights
-      console.log(flight)
+      const message = this.state.messages
+      console.log(message)
 
         return(
             <div>
+                {this.state.messages.map(message => {
+                  return(
+                  <p>
+                      {message.altitude}
+                     {message.longitude}
+               </p>
+                  )
+                  })}
             </div>
     );
   }
 }
 
 export default MapPage;
+
