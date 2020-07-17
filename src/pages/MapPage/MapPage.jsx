@@ -8,9 +8,11 @@ class MapPage extends Component {
 constructor() {
     super() 
     this.state={    
-        flights: []
+        feed: []
     }
 }
+
+//response.response.feedMessageResponse.messages.messages
 
 componentDidMount() {
     this.getAllFlights()
@@ -22,16 +24,21 @@ getAllFlights = async () => {
         const parsedAllFlights = await allFlights.json()
         console.log(parsedAllFlights)
         this.setState({
-            flights: parsedAllFlights.data
+            flights: parsedAllFlights.response
         })
     } catch(error) {
         console.log(error)
     }
 }
 
-
   render() {
-    return <div></div>;
+      const flight = this.state.flights
+      console.log(flight)
+
+        return(
+            <div>
+            </div>
+    );
   }
 }
 

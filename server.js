@@ -30,11 +30,13 @@ app.use('/api/users', usersRoutes);
 
 
 app.get('/allFlights', async(req, res) => {
-    const apiUrl = `https://${token}@opensky-network.org/api/flights/all?begin=1517227200&end=1517230800&icao24=A647D7` 
+    const apiUrl = `https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/${token}/message.json`
     const response = await fetch(apiUrl)
     const json = await response.json();
     res.send(json)
 })
+
+https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/03ZdLebSI9FRTkq88eKSqvWMRHFA5cqQf/message.json
 
 // 172   &icao24=A647D7
 
@@ -50,3 +52,11 @@ const port = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`Express app running on port ${port}`)
 });
+
+
+// app.get('/allFlights', async(req, res) => {
+//     const apiUrl = `https://${token}@opensky-network.org/api/flights/aircraft?icao24=3c675a&begin=1517184000&end=1517270400"`
+//     const response = await fetch(apiUrl)
+//     const json = await response.json();
+//     res.send(json)
+// })
