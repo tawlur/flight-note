@@ -71,7 +71,7 @@ class MapPage extends Component {
                 position="relative"
               />
             </p>
-            <div className='panel-footer'>
+            {/* <div className='panel-footer'>
                 <Link className='btn btn-xs btn-warning' to={{ pathname: '/edit', state: {clickedOnPuppy: puppyFromParent}  }}>EDIT</Link>
                 <button
                     className='btn btn-xs btn-danger margin-left-10'
@@ -79,7 +79,7 @@ class MapPage extends Component {
                 >
                     DELETE
                 </button>
-            </div>
+            </div> */}
           {/* ); */}
         {/* })} */}
       </div>
