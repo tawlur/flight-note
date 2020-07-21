@@ -32,17 +32,17 @@ class App extends Component {
     return (
         <div className="App">
         <header className="App-header">
-          React Note CRUD
+         Hike Note
           <nav>
             {userService.getUser() ?
               <>
-                {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
+                {userService.getUser().name ? `Welcome, ${userService.getUser().name.toUpperCase()}` : ''}
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>
+                <NavLink exact to='/logout' onClick={this.handleLogout}>LogOut</NavLink>
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/'>PUPPIES LIST</NavLink>
+                <NavLink exact to='/mapPage'>Map Page</NavLink>
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/add'>ADD PUPPY</NavLink>
+                <NavLink exact to='/'>Home Page</NavLink>
               </>
               :
               <>
@@ -50,8 +50,12 @@ class App extends Component {
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to='/login'>LOGIN</NavLink>
                 &nbsp;&nbsp;&nbsp;
+
               </>
             }
+                            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend+Zetta&display=swap');
+                </style>
           </nav>
         </header>          <div className='page_container'>
           <Switch>

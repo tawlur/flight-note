@@ -3,8 +3,8 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer>
-                <div>
-                    Map Note Footer
+                <div className="App-footer">
+                    
                 </div>
         </footer>
     );
