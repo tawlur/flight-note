@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import Iframe from "react-iframe";
 import tokenService from "../../utils/tokenService";
-import { Link } from "react-router-dom";
 
 class MapPage extends Component {
-  // Write a function that will reach out to the api and grab info from the map
-  // Get all beer ie..   (look into component did mount)
-  //
 
   constructor() {
     super();
@@ -15,8 +11,6 @@ class MapPage extends Component {
       messages: [],
     };
   }
-
-  //response.response.feedMessageResponse.messages.messages
 
   componentDidMount() {
     this.getAllMessages();
@@ -48,25 +42,14 @@ class MapPage extends Component {
     console.log(message);
     console.log(process.env.REACT_APP_MAPKEY, "MAPKEY");
 
-    //const iframeUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA_fkU85khz1rmdlRMze60rE7gA9OTT3TU&q=location=${message.latitude},${message.longitude}`
-
     return (
       <div>
-        {/* {this.state.messages.map((message) => { */}
-        {/* return ( */}
         <p>SPOT GPS Map Page</p>
 
         <div className="App-table-group">
-        
-         <div>
-            Altitude {message.altitude}
-         </div>
-         <div>
-          Latitude {message.latitude}
-         </div>
-         <div>
-          Longitude {message.longitude}
-         </div>
+          <div>Altitude {message.altitude}</div>
+          <div>Latitude {message.latitude}</div>
+          <div>Longitude {message.longitude}</div>
         </div>
 
         <p>
@@ -80,17 +63,6 @@ class MapPage extends Component {
             position="relative"
           />
         </p>
-        {/* <div className='panel-footer'>
-                <Link className='btn btn-xs btn-warning' to={{ pathname: '/edit', state: {clickedOnPuppy: puppyFromParent}  }}>EDIT</Link>
-                <button
-                    className='btn btn-xs btn-danger margin-left-10'
-                    onClick={() => handleDeletePuppy(puppyFromParent._id)}
-                >
-                    DELETE
-                </button>
-            </div> */}
-        {/* ); */}
-        {/* })} */}
       </div>
     );
   }
