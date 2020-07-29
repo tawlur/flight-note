@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import React, { Component } from "react";
+import { Map, GoogleApiWrapper } from "google-maps-react";
 
 const mapStyles = {
-  width: '30%',
-  height: '100%'
+  width: "30%",
+  height: "100%",
 };
 
 export class MapContainer extends Component {
@@ -14,8 +14,8 @@ export class MapContainer extends Component {
         zoom={14}
         style={mapStyles}
         initialCenter={{
-         lat: -1.2884,
-         lng: 36.8233
+          lat: -1.2884,
+          lng: 36.8233,
         }}
       />
     );

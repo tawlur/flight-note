@@ -3,7 +3,6 @@ import Iframe from "react-iframe";
 import tokenService from "../../utils/tokenService";
 
 class MapPage extends Component {
-
   constructor() {
     super();
     this.state = {
